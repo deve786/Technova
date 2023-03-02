@@ -1,24 +1,76 @@
-import React from 'react'
-import Dashboardnav from '../Components/dashboardnav'
-import Sidebar from '../Components/sidebar'
 import LevelThree1 from '../Components/levelthree/levelthree1'
 import LevelThree2 from '../Components/levelthree/levelthree2'
 import LevelThree3 from '../Components/levelthree/levelthree3'
-
+import TimeOutPage from './TimeOutPage';
+import React, { useEffect, useState } from 'react';
 const LevelThree = () => {
+    const [selectedComponent, setSelectedComponent] = useState('LevelThree1');
+    const [timer, setTimer] = useState(60);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimer(prevTimer => prevTimer - 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+    const renderComponent = () => {
+        switch (selectedComponent) {
+            case 'LevelThree1':
+                return <LevelThree1 />;
+            case 'LevelThree2':
+                return <LevelThree2 />;
+            case 'LevelThree3':
+                return <LevelThree3 />;
+            default:
+                return null;
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, []);
+
+    const handleBeforeUnload = (event) => {
+        event.preventDefault();
+        event.returnValue = ''; // This is required to trigger the confirmation dialog
+    }
     return (
         <div className="dashboard">
-        <Dashboardnav />
-        <div className="dashboard-row">
-            <div><Sidebar /></div>  
-            {/* <div className="l3-t2"><LevelThree2 /></div> */}
-            <div><LevelThree1 /></div>
-        </div>
+            {timer <= 0 ? <TimeOutPage />: <div className="dashboard-row">
+                <div>
+                    <div className="sidebar">
+                        <ul className="sidebarlist">
+                        <li className="row">
+                                <div id="icon"><i className="fa-regular fa-clock"></i></div>{" "}
+                                <div id="title">{`Timer: ${timer}`}</div>
+                            </li>
+                            <hr/>
+                            <li className="row" onClick={() => setSelectedComponent('LevelThree1')}>
+                                <div id="icon"><i className="fa-regular fa-pen-to-square"></i></div>{" "}
+                                <div id="title">Level 1</div>
+                            </li>
+                            <li className="row" onClick={() => setSelectedComponent('LevelThree2')}>
+                                <div id="icon"><i className="fa-regular fa-pen-to-square"></i></div>{" "}
+                                <div id="title">Level 2</div>
+                            </li>
+                            <li className="row" onClick={() => setSelectedComponent('LevelThree3')}>
+                                <div id="icon"><i className="fa-regular fa-pen-to-square"></i></div>{" "}
+                                <div id="title">Level 3</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    {renderComponent()}
+                </div>
+            </div>}
         </div>
     )
 }
 
-export default LevelThree
+export default LevelThree;
 
 
 
