@@ -4,6 +4,7 @@ import Dashboardnav from '../Components/dashboardnav';
 import Header from '../Components/header'
 import Navbar from '../Components/navbar'
 import Sidebar from '../Components/sidebar';
+import LevelFive from './levelfive';
 import LevelFour from './levelfour';
 import LevelOne from './levelone';
 import LevelThree from './levelthree';
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/level-two" element={<LevelTwo />} />
         <Route path="/level-three" element={<LevelThree />} />
         <Route path="/level-four" element={<LevelFour />} />
-        {/* <Route path="/level-five" element={<LevelFive />} /> */}
+        <Route path="/level-five" element={<LevelFive />} />
       </Routes>
       {/* </div> */}
     {/* <LevelOne /> */}
