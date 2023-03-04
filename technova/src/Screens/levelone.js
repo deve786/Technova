@@ -8,8 +8,9 @@ import LevelOne5 from '../Components/levelone/levelone5';
 
 const LevelOne = () => {
     const [selectedComponent, setSelectedComponent] = useState('LevelOne1');
-    const [timer, setTimer] = useState(60);
-
+    const [timer, setTimer] = useState(60*50);
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
     useEffect(() => {
         const interval = setInterval(() => {
             setTimer(prevTimer => prevTimer - 1);
@@ -51,7 +52,7 @@ const LevelOne = () => {
                         <ul className="sidebarlist">
                         <li className="row">
                                 <div id="icon"><i className="fa-regular fa-clock"></i></div>{" "}
-                                <div id="title">{`Timer: ${timer}`}</div>
+                                <div id="title">Timer : {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
                             </li>
                             <hr/>
                             <li className="row" onClick={() => setSelectedComponent('LevelOne1')}>

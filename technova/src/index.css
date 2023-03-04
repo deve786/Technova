@@ -30,13 +30,15 @@ h3,
 h4,
 h5,
 h6 {
-    color: #4b2848; 
+    color: #fff; 
 }
 
 .Home {
     background: url('../public/images/img3.png');
-    background-repeat: no-repeat;
-    width: 100%;
+    background-size: cover;
+    
+    
+    
 }
 
 
@@ -188,9 +190,10 @@ header {
 /* --------------- Sidebar ------------------------- */
 
 .sidebar {
-    height: 100%;
+    min-height: 100vh;
     width: 25rem;
     background-color: #525252;
+    height: 100%;
 }
 
 .sidebarlist {
@@ -233,8 +236,8 @@ header {
 /* ------------- Dashboard -------------- */
 
 .dashboard {
-    height: 100vh;
-    /* background: linear-gradient(45deg, rgb(205, 152, 245), rgb(233, 138, 215)); */
+    min-height: 100vh;
+   
 }
 .dashboard-row {
     margin: 0;
@@ -258,6 +261,7 @@ header {
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
+    color: #fff;
 }
 
 
@@ -299,10 +303,10 @@ label {
     font-size: 1.3rem;
 }
 
-.submit {
+/* .submit {
     width: 100%;
     padding: 0 90%;
-}
+} */
 
 .btn-success {
     padding: 0.5rem 1.2rem;

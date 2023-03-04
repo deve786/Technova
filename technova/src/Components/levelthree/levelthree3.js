@@ -7,8 +7,8 @@ const LevelThree3 = () => {
         <>
             <div className="level">
                 <div className="level-head">
-                    <h1>Level Three</h1>
-                    <h3>Task 3</h3>
+                    <h1>Round Three</h1>
+                    <h3>Predit Output</h3>
                 </div>
                 <div className="level-body">
                     <form>

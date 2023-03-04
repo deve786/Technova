@@ -6,8 +6,9 @@ import LevelTwo3 from '../Components/leveltwo/leveltwo3'
 import LevelTwo4 from '../Components/leveltwo/leveltwo4'
 const LevelTwo = () => {
     const [selectedComponent, setSelectedComponent] = useState('LevelTwo1');
-    const [timer, setTimer] = useState(60);
-
+    const [timer, setTimer] = useState(60*25);
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
     useEffect(() => {
         const interval = setInterval(() => {
             setTimer(prevTimer => prevTimer - 1);
@@ -47,7 +48,7 @@ const LevelTwo = () => {
                         <ul className="sidebarlist">
                         <li className="row">
                                 <div id="icon"><i className="fa-regular fa-clock"></i></div>{" "}
-                                <div id="title">{`Timer: ${timer}`}</div>
+                                <div id="title">Timer : {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
                             </li>
                             <hr/>
                             <li className="row" onClick={() => setSelectedComponent('LevelTwo1')}>

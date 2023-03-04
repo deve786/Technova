@@ -6,7 +6,7 @@ const LevelTwo2 = () => {
         <>
             <div className="level">
                 <div className="level-head">
-                    <h1>Level Two</h1>
+                    <h1>Round Two</h1>
                     <h3>Task 2</h3>
                 </div>
                 <div className="level-body">

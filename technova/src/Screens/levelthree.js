@@ -5,8 +5,9 @@ import TimeOutPage from './TimeOutPage';
 import React, { useEffect, useState } from 'react';
 const LevelThree = () => {
     const [selectedComponent, setSelectedComponent] = useState('LevelThree1');
-    const [timer, setTimer] = useState(60);
-
+    const [timer, setTimer] = useState(60*50);
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
     useEffect(() => {
         const interval = setInterval(() => {
             setTimer(prevTimer => prevTimer - 1);
@@ -44,7 +45,7 @@ const LevelThree = () => {
                         <ul className="sidebarlist">
                         <li className="row">
                                 <div id="icon"><i className="fa-regular fa-clock"></i></div>{" "}
-                                <div id="title">{`Timer: ${timer}`}</div>
+                                <div id="title">Timer : {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
                             </li>
                             <hr/>
                             <li className="row" onClick={() => setSelectedComponent('LevelThree1')}>
