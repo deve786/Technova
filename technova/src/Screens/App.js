@@ -12,11 +12,11 @@ import LevelTwo from './leveltwo';
 const App = () => {
   return (
     <div className="Home">
-     {/* <Navbar /> */}
-      {/* <Header />  */}
+      {/* <Navbar /> 
+       <Header />   */}
       <Dashboardnav />
-      {/* <div className="dashboard-row"> */}
-      {/* <div><Sidebar /></div>  */}
+       {/* <div className="dashboard-row"> 
+      <div><Sidebar /></div>  */}
       <Routes>
         <Route path="/" element={<LevelOne />} />
         <Route path="/level-one" element={<LevelOne />} />
@@ -31,6 +31,7 @@ const App = () => {
     {/* <LevelThree /> */}
     
      </div>
+    
   );
 };
 
